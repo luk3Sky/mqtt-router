@@ -58,7 +58,7 @@ const mqtt = mqttClient.connect(process.env.MQTT_HOST, mqttOptions);
 const { MQTTRouter } = require('@pera-swarm/mqtt-router');
 const routes = require('./routes');
 
-var router;
+let router;
 
 // Sample MQTT Message Options
 const SAMPLE_OPTIONS = { qos: 2, rap: true, rh: true };
@@ -97,7 +97,7 @@ You can also wrap the routes using `wrapper` function to include additional high
 const { MQTTRouter, wrapper } = require('@pera-swarm/mqtt-router');
 const routes = require('./routes');
 
-var router;
+let router;
 
 // Sample MQTT Message Options
 const SAMPLE_OPTIONS = { qos: 2, rap: true, rh: true };

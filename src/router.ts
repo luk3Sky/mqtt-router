@@ -93,7 +93,7 @@ export class MQTTRouter {
                     type: 'String',
                     handler: (msg: string) => {
                         try {
-                            var data = JSON.parse(msg);
+                            let data = JSON.parse(msg);
                             console.log(
                                 `Default Subscriber(${channel}) picked up the message`,
                                 data
@@ -131,10 +131,10 @@ export class MQTTRouter {
         this._mqttClient.on(
             'message',
             (topic: string, message: Buffer, packet: IPublishPacket) => {
-                for (var i = 0; i < this._routes.length; i += 1) {
+                for (let i = 0; i < this._routes.length; i += 1) {
                     if (resolveChannelTopic(this._routes[i].topic) === topic) {
                         // convert message format
-                        var msg;
+                        let msg;
                         if (logLevel !== 'info') {
                             console.log(
                                 'MQTT_Message_To_Be_Handled:',
@@ -192,7 +192,7 @@ export class MQTTRouter {
      * method for handling the subscriptions for the topics in the routes list.
      */
     handleRouteSubscriptions = () => {
-        for (var i = 0; i < this._routes.length; i++) {
+        for (let i = 0; i < this._routes.length; i++) {
             if (this._routes[i].subscribe !== false) {
                 // subscribe at the beginning unless it is avoided by setting 'subscribe:false'
                 if (logLevel === 'debug') {
